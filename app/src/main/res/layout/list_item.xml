@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="asteroid"
+            type="com.udacity.asteroidradar.Asteroid" />
+
+        <variable
+            name="onAsteroidClickListener"
+            type="com.udacity.asteroidradar.AsteroidAdapter.AsteroidClickListener" />
+
+    </data>
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?android:attr/selectableItemBackgroundBorderless"
+        android:onClick="@{() -> onAsteroidClickListener.onClickListener(asteroid)}"
+        app:cardBackgroundColor="#000000">
+
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="16dp">
+
+            <TextView
+                android:id="@+id/nameTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{asteroid.codename}"
+
+                android:textColor="#ffffff"
+                tools:text="683456 (2001 KB67)" />
+
+            <TextView
+                android:id="@+id/closeApproachDateTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:contentDescription="@string/close_approach_data_title"
+                android:text="@{asteroid.closeApproachDate}"
+                android:textColor="#ffffff"
+                tools:layout_editor_absoluteX="183dp"
+                tools:layout_editor_absoluteY="80dp"
+                tools:text="2020-02-01" />
+
+            <ImageView
+                android:id="@+id/imageView"
+                statusIcon="@{asteroid.potentiallyHazardous}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="300dp"
+                android:contentDescription="@string/potentially_hazardous_asteroid_image"
+                tools:src="@drawable/ic_status_normal" />
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+    </androidx.cardview.widget.CardView>
+</layout>
