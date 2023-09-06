@@ -24,43 +24,53 @@
         app:cardBackgroundColor="#000000">
 
 
-        <androidx.coordinatorlayout.widget.CoordinatorLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="16dp"
-            android:paddingHorizontal="16dp"
-            android:paddingVertical="16dp">
-
-            <TextView
-                android:id="@+id/nameTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@{asteroid.codename}"
-
-                android:textColor="#ffffff"
-                tools:text="683456 (2001 KB67)" />
+            >
 
             <TextView
                 android:id="@+id/closeApproachDateTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="3dp"
                 android:contentDescription="@string/close_approach_data_title"
                 android:text="@{asteroid.closeApproachDate}"
                 android:textColor="#ffffff"
-                tools:layout_editor_absoluteX="183dp"
-                tools:layout_editor_absoluteY="80dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/nameTextView"
                 tools:text="2020-02-01" />
 
             <ImageView
                 android:id="@+id/imageView"
                 statusIcon="@{asteroid.potentiallyHazardous}"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="300dp"
+                android:layout_height="15dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="29dp"
                 android:contentDescription="@string/potentially_hazardous_asteroid_image"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
                 tools:src="@drawable/ic_status_normal" />
 
-        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+            <TextView
+                android:id="@+id/nameTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:text="@{asteroid.codename}"
+                android:textColor="#ffffff"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="683456 (2001 KB67)" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 </layout>

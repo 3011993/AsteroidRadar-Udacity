@@ -31,7 +31,7 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {
         viewModelScope.launch {
             asteroidsRepository.refreshAsteroids()
             asteroidsRepository.refreshImages()
-            getAsteroidOfWeek()
+            getAllasteroids()
         }
     }
 
